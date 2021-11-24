@@ -1,0 +1,24 @@
+{
+  "name": "timeanddate-poc-jimenapenaloza",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "cypress:open": "cypress open"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jhime1312/timeAndDate-POC-JimenaPenaloza.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jhime1312/timeAndDate-POC-JimenaPenaloza/issues"
+  },
+  "homepage": "https://github.com/jhime1312/timeAndDate-POC-JimenaPenaloza#readme",
+  "dependencies": {
+    "cypress": "9.0.0",
+    "cypress-harvester": "1.3.0"
+  }
+}
