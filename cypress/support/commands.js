@@ -23,6 +23,9 @@
 //
 // -- This will overwrite an existing command --
 // Cypress.Commands.overwrite('visit', (originalFn, url, options) => { ... })
+
+require('cypress-downloadfile/lib/downloadFileCommand');
+
 Cypress.Commands.add('login', () => {
     cy.visit('/');
     cy.get('a.site-nav__title').contains('My Account');
@@ -30,9 +33,7 @@ Cypress.Commands.add('login', () => {
     cy.get('input#email').type(Cypress.env('user_email'));
     cy.get('input#password').type(Cypress.env('user_password'));
     cy.get('input#create').click();
-});
-
-Cypress.Commands.add('logout', () => {
-    cy.get('a.site-nav__title').contains('My Account').click({force:true});
-    cy.get('a#my-out').click();
 })
+
+
+

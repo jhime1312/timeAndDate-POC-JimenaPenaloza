@@ -10,13 +10,8 @@ import {calculators} from '../support/calculators';
 import {appsAndApi} from '../support/appsAndApi';
 import {freeFun} from '../support/freeFun';
 
+
 describe('Functions bar main options', () => {
-    beforeEach(() =>{
-        cy.login();
-    });
-    afterEach(() => {
-        cy.logout();
-    })
     it('Tabs content', () => {
         cy.visit('/');
         cy.get('.site-nav-bar__menu-wrap .site-nav__menu ')
@@ -89,12 +84,11 @@ describe('Functions bar main options', () => {
     it('Event time anouncer on Time Zones tab', () => {
         timeZoneTab.goToEventTimeAnnouncer();
         cy.get('input#msg').type(Cypress.env('eventVacationTime'));
-        // cy.get('button.btn-citypicker').click();
         cy.get('input#p1txt').type('Cochabamba - Bolivia');
-        cy.get('input#month').click({force:true});
-        cy.contains('02 - Feb').click();
         cy.get('input#day').click({force:true});
         cy.get('a.lr').contains('02').click({force:true});
+        cy.get('input#month').click({force:true});
+        cy.contains('02 - Feb').click();
         cy.get('input#year').click({force:true});
         cy.get('input#year').type('2022');
         cy.get('input#hour').click({force:true});
@@ -115,12 +109,9 @@ describe('Functions bar main options', () => {
         cy.get('input.fw').type('Noviembre');
         cy.get('select.fw').select('Bolivia', {force:true}).invoke('val').should('eq', '53');
         cy.get('input.input__date-year').type('2021');
-        // cy.get('select').select('November', {force:true}).invoke('val').should('eq', '11');
-        // cy.get('select').select('5', {force:true}).invoke('val').should('eq', '5');
-        // cy.get('select').select('Letter', {force:true}).invoke('val').should('eq', '1');
         cy.contains('Show week numbers').click();
-        // cy.contains(' Download PDF Calendar ').click();
-        //cy.url().should('include', 'November');
+        cy.get('button.form-submit').click();
+        cy.get('.fixed.mob-nopad').should('be.visible');
     });
     it('Hour by hour on Weather tab', () => {
         weather.goToHourByHour();
@@ -151,15 +142,11 @@ describe('Functions bar main options', () => {
     it('Distance calculators in Calculators tab', () => {
         calculators.goToDistanceCalc();
         cy.get('div.fixed').contains('Distance Calculator – How far is it?').should('be.visible');
-        // cy.get('select#p1').select('113', {force:true}).invoke('val').should('eq', 'Afghanistan - Kabul');
-        //cy.get('select#p2').select('173', {force:true}).invoke('val').should('eq', 'Bahamas - Nassau');
     });
     it('Android apps on Apps & API', () => {
         appsAndApi.goToAndroid();
         cy.get('p.large-link').click();
         cy.url().should('include', 'worldclock');
-        cy.contains('Get World Clock App Now!').click();
-        cy.get('div.Rx5dXb').should('be.visible');
     });
     it('Fun holidays on Free Fun tab', () => {
         freeFun.goToFunHolidays();
@@ -167,8 +154,6 @@ describe('Functions bar main options', () => {
         cy.url().should('include', 'buffet-day');
         cy.get('.mgt0').should('be.visible');
         cy.get('input#boxyear').type('2021');
-        // cy.get('select#month.inline.six').select('12', {force:true}).invoke('val').should('eq', 'December');
-        // cy.get('select#country.inline.twelve').select('53', {force:true}).invoke('val').should('eq', 'Bolivia');
         cy.contains('View Calendar').click();
         cy.get('div#calarea').should('be.visible');
     })
