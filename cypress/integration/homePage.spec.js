@@ -9,6 +9,8 @@ import {timers} from '../support/timers';
 import {calculators} from '../support/calculators';
 import {appsAndApi} from '../support/appsAndApi';
 import {freeFun} from '../support/freeFun';
+/// <reference types="cypress-downloadfile"/>
+/// <reference types="cypress"/>
 
 
 describe('Functions bar main options', () => {
@@ -64,8 +66,10 @@ describe('Functions bar main options', () => {
         cy.url().should('include', 'astronomy');
         cy.contains('What Causes Seasons on Earth?').click();
         cy.url().should('include', 'seasons-causes');
+        cy.downloadFile('https://c.tadst.com/gfx/600x337/equinoxes-and-solstice.png?1','myDownloads','equinoxes-and-solstice.png');
         cy.contains('The Sun: Our home star').click();
         cy.url().should('include', 'sun');
+        cy.downloadFile('https://c.tadst.com/gfx/600x337/istock-936863548.jpg?1','myDownloads','sun.jpg');
         cy.contains('Compare the sizes and order of the Sun and the planets').click();
         cy.get('#solarsystem-svg').should('be.visible');
     });

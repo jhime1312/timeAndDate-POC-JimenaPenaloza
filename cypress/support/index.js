@@ -18,11 +18,6 @@ import './commands';
 
 // Alternatively you can use CommonJS syntax:
 // require('./commands')
-/*
-const {downloadFile} = require('cypress-downloadfile/lib/addPlugin')
-module.exports = (on, config) => {
-  on('task', {downloadFile})
-};*/
 
 require('cypress-plugin-retries');
 

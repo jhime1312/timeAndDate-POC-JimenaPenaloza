@@ -1,8 +1,7 @@
 import 'cypress-harvester';
-/// <reference types="cypress-downloadfile"/>
 
 describe('Account functions', () => {
-    /*
+   
     it('Create account', () => {
         cy.visit('/');
         cy.get('a.site-nav__title').contains('My Account');
@@ -20,7 +19,7 @@ describe('Account functions', () => {
         cy.get('.main-content-div').should('be.visible');
         cy.get('i.i-font.i-account_circle.site-nav__desktop-title').click();
         cy.get('section.article__body.article__body--right').should('be.visible'); 
-    }); // solo una vez*/
+    });
     beforeEach(() =>{
         cy.login();
     });
@@ -39,8 +38,6 @@ describe('Account functions', () => {
         cy.get('.site-nav__item.site-nav__item--divider .site-nav__link').contains('My Privacy').click({force: true});
         cy.get('a#download.button.submit.round').click();
         cy.verifyDownload('data.json');
-        // cy.downloadFile('https://www.timeanddate.com/scripts/export.php?ft=454959_c579c9d2be450ab473d56562a0ddc577','myDownloads','AutoTest.jpg');
-        // cy.get('a#download.button.submit.round').click();
     });
 
 });
