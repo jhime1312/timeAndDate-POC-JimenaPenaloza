@@ -19,6 +19,10 @@
   "homepage": "https://github.com/jhime1312/timeAndDate-POC-JimenaPenaloza#readme",
   "dependencies": {
     "cypress": "9.0.0",
+    "cypress-downloadfile": "1.2.1",
     "cypress-harvester": "1.3.0"
+  },
+  "devDependencies": {
+    "cypress-plugin-retries": "1.5.2"
   }
 }

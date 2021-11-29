@@ -1,4 +1,7 @@
 {
+    "retries": 2,
     "baseUrl":"https://www.timeanddate.com",
-    "chromeWebSecurity": false
+    "chromeWebSecurity": false,
+    "defaultCommandTimeout":10000,
+    "requestTimeout": 9000
 }
